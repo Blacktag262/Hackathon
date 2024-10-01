@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRDO Official Website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Style */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #002147;
+            padding: 10px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            height: 80px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Apply Now Button */
+        nav ul li a.apply-now {
+            background-color: #014582;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a.apply-now:hover {
+            background-color: #002147;
+        }
+
+        /* Application Form */
+        #application-form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin: 30px auto;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #application-form h2 {
+            color: #002147;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            background-color: #002147;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #014582;
+        }
+
+        /* Section Style */
+        section {
+            padding: 40px;
+            background-color: #ffffff;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #002147;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Document Upload Section */
+        #form {
+            padding: 40px;
+            background-color: #cce5ff; /* Light blue color for the section */
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 30px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-card {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .upload-card h3 {
+            color: #002147;
+            margin-bottom: 15px;
+            text-align: left; /* Align title to the left */
+        }
+
+        .upload-card label {
+            font-weight: bold;
+            color: #d74835;
+            display: block;
+            margin-bottom: 5px; /* Adjust margin for spacing */
+        }
+
+        .file-upload {
+            display: none; /* Hide the default file input */
+        }
+
+        .file-upload-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1c55f3;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+            width: 100%; /* Make label full width */
+            text-transform: uppercase; /* Capitalize text */
+        }
+
+        .file-upload-label:hover {
+            background-color: #1c55f3;
+        }
+
+        .upload-card button {
+            background-color: #002147;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            display: block; /* Make button a block element for better alignment */
+            margin-top: 10px; /* Add margin for spacing */
+            width: 100%; /* Make button full width */
+        }
+
+        .upload-card button:hover {
+            background-color: #014582;
+        }
+
+        /* Footer Style */
+        footer {
+            background-color: #002147;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Hide Document Upload Section Initially */
+        #document-upload {
+            display: none;
+        }
+    </style>
+
+    <script>
+        function showDocumentUpload() {
+            // Hide application form and show document upload section
+            document.getElementById('application-form').style.display = 'none';
+            document.getElementById('document-upload').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Logo and Header -->
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Dell\Downloads\Drdo-removebg-preview (1).png" alt="DRDO Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#application-form">Application Form</a></li>
+                <li><a href="#about">About</a></li>
+                <li>
+                    <a href="#application-form" class="apply-now">Apply Now</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Application Form Section -->
+    <section id="application-form">
+        <h2>Application Form</h2>
+        <form onsubmit="event.preventDefault(); showDocumentUpload();">
+            <label for="candidateName">Candidate Name:</label>
+            <input type="text" id="candidateName" name="candidateName" placeholder="Enter your name" required>
+
+            <label for="candidateEmail">Candidate Email:</label>
+            <input type="email" id="candidateEmail" name="candidateEmail" placeholder="Enter your email" required>
+
+            <label for="candidatePhone">Candidate Phone Number:</label>
+            <input type="tel" id="candidatePhone" name="candidatePhone" placeholder="Enter your phone number" required>
+
+            <label for="candidateAddress">Candidate Address:</label>
+            <textarea id="candidateAddress" name="candidateAddress" placeholder="Enter your address" required></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </section>
+
+    <!-- Document Upload Section (Initially Hidden) -->
+    <section id="document-upload">
+        <h2>Upload Documents</h2>
+
+        <!-- Upload Birth Certificate -->
+        <div class="upload-card">
+            <h3>Upload Birth Certificate</h3>
+            <label for="birthCertificate">Select Birth Certificate:</label>
+            <input type="file" id="birthCertificate" name="birthCertificate" class="file-upload" accept=".pdf,.doc,.docx" required>
+            <label for="birthCertificate" class="file-upload-label">Choose File</label>
+            <button type="submit">Submit</button>
+        </div>
+
+        <!-- Upload SSC Marksheet -->
+        <div class="upload-card">
+            <h3>Upload SSC Marksheet</h3>
+            <label for="sscMarksheet">Select SSC Marksheet:</label>
+            <input type="file" id="sscMarksheet" name="sscMarksheet" class="file-upload" accept=".pdf,.doc,.docx" required>
+            <label for="sscMarksheet" class="file-upload-label">Choose File</label>
+            <button type="submit">Submit</button>
+        </div>
+
+        <!-- Upload HSC Marksheet -->
+        <div class="upload-card">
+            <h3>Upload HSC Marksheet</h3>
+            <label for="hscMarksheet">Select HSC Marksheet:</label>
+            <input type="file" id="hscMarksheet" name="hscMarksheet" class="file-upload" accept=".pdf,.doc,.docx" required>
+            <label for="hscMarksheet" class="file-upload-label">Choose File</label>
+            <button type="submit">Submit</button>
+        </div>
+
+        <!-- Upload MSc Marksheet -->
+        <div class="upload-card">
+            <h3>Upload MSc Marksheet</h3>
+            <label for="mscMarksheet">Select MSc Marksheet:</label>
+            <input type="file" id="mscMarksheet" name="mscMarksheet" class="file-upload" accept=".pdf,.doc,.docx" required>
+            <label for="mscMarksheet" class="file-upload-label">Choose File</label>
+            <button type="submit">Submit</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About DRDO</h2>
+        <p>The Defence Research and Development Organisation (DRDO) works under the Department of Defence Research and Development in the Ministry of Defence, Government of India. DRDO is dedicated to enhancing India’s defense capabilities through research, development, and production of world-class defense equipment.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Defence Research and Development Organisation (DRDO). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
